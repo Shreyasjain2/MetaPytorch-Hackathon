@@ -50,17 +50,28 @@ using SQL queries and Python code.
 
 ### Local Development
 
+1. **Clone and Install**
 ```bash
+# Clone the repository
+git clone https://github.com/shreyas231219/Meta-Pytorch-Openenv.git
+cd Meta-Pytorch-Openenv
+
 # Install dependencies
-pip install openenv-core
+pip install -e .
+```
 
-# Run the server (defaults to the 'easy' task)
-cd sql_sandbox
+2. **Run the Server**
+The server will default to port **7860**. 
+
+**Bash (Linux/macOS):**
+```bash
 TASK_ID=easy python -m server.app
+```
 
-# Switch tasks via env var
-TASK_ID=medium python -m server.app
-TASK_ID=hard python -m server.app
+**PowerShell (Windows):**
+```powershell
+$env:TASK_ID='easy'
+python -m server.app
 ```
 
 ### Docker (Hugging Face Spaces Ready)
@@ -75,29 +86,28 @@ docker run -p 7860:7860 sql-sandbox:latest
 
 ## Baseline Inference
 
-Runs GPT-4o on all three tasks and prints reproducible scores:
+Runs GPT-4o on all three tasks and prints reproducible scores. 
 
-```bash
-export HF_TOKEN=sk-...
-export MODEL_NAME=gpt-4o
+```powershell
+# For local testing in PowerShell (Windows)
+$env:HF_TOKEN='sk-...'
+$env:MODEL_NAME='gpt-4o'
 python inference.py --url http://localhost:7860
 ```
 
 ## Project Structure
 
 ```
-sql_sandbox/
-├── init.py             # Package exports
-├── models.py               # Action & Observation Pydantic models
-├── client.py               # EnvClient subclass
-├── openenv.yaml            # OpenEnv manifest
-├── pyproject.toml           # Dependencies
-├── inference.py            # GPT-4o baseline script
+.
+├── Dockerfile              # Root Dockerfile for HF Spaces
+├── openenv.yaml            # OpenEnv manifest (port 7860)
+├── pyproject.toml           # Package dependencies
+├── inference.py            # baseline inference script
+├── inference_groq.py       # groq inference script
 ├── README.md               # This file
+├── client.py               # EnvClient helper
+├── models.py               # Action & Observation models
 └── server/
-    ├── init.py
-    ├── app.py              # FastAPI application
-    ├── environment.py      # Core environment logic + graders
-    ├── requirements.txt
-    └── Dockerfile
+    ├── app.py              # FastAPI server entry point
+    └── environment.py      # Core environment logic + graders
 ```

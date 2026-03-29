@@ -167,8 +167,8 @@ def main():
     )
     parser.add_argument(
         "--url",
-        default="http://localhost:8000",
-        help="Base URL of the running environment server (default: http://localhost:8000)",
+        default="http://localhost:7860",
+        help="Base URL of the running environment server (default: http://localhost:7860)",
     )
     parser.add_argument(
         "--max-turns",

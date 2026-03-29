@@ -7,8 +7,8 @@ reproducible scores via the OpenEnv WebSocket client.
 Usage:
     set GROQ_API_KEY=gsk-...          # Windows
     export GROQ_API_KEY=gsk-...       # Linux/macOS
-    python baseline_inference_groq.py                    # local server
-    python baseline_inference_groq.py --url https://...  # remote server
+    python inference_groq.py                    # local server
+    python inference_groq.py --url https://...  # remote server
 """
 
 import argparse
@@ -163,8 +163,8 @@ def main():
     )
     parser.add_argument(
         "--url",
-        default="http://localhost:8000",
-        help="Base URL of the running environment server (default: http://localhost:8000)",
+        default="http://localhost:7860",
+        help="Base URL of the running environment server (default: http://localhost:7860)",
     )
     parser.add_argument(
         "--max-turns",

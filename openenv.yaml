@@ -3,7 +3,7 @@ name: sql_sandbox
 type: space
 runtime: fastapi
 app: server.app:app
-port: 8000
+port: 7860
 
 description: >
   SQL/Data Cleaning Sandbox - a real-world OpenEnv environment where AI agents
