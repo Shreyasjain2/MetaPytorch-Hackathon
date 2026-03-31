@@ -53,7 +53,7 @@ using SQL queries and Python code.
 1. **Clone and Install**
 ```bash
 # Clone the repository
-git clone https://github.com/shreyas231219/Meta-Pytorch-Openenv.git
+git clone https://github.com/Shreyasjain2/MetaPytorch-Hackathon.git
 cd Meta-Pytorch-Openenv
 
 # Install dependencies
