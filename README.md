@@ -54,7 +54,7 @@ using SQL queries and Python code.
 ```bash
 # Clone the repository
 git clone https://github.com/Shreyasjain2/MetaPytorch-Hackathon.git
-cd Meta-Pytorch-Openenv
+cd MetaPytorch-Hackathon
 
 # Install dependencies
 pip install -e .
